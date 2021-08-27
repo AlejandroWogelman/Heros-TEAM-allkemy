@@ -6,7 +6,7 @@ export const PublicRoutes = ({ auth, component: Component, ...rest }) => {
     <Route
       {...rest}
       component={(props) =>
-        auth ? <Redirect to="/" /> : <Component {...props} />
+        true ? <Redirect to="/" /> : <Component {...props} />
       }
     />
   );
