@@ -6,10 +6,10 @@ import { HeroScreen } from "../Pages/HeroScreen";
 export const DashboardRoutes = () => {
   return (
     <Switch>
-      <Route exact path="/inicio" component={ScreenGroups} />
+      <Route exact path="/" component={ScreenGroups} />
 
       <Route exact path="/hero/:heroName/:id" component={HeroScreen} />
-      <Redirect to="/inicio" />
+      <Redirect to="/" />
     </Switch>
   );
 };

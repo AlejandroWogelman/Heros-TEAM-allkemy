@@ -10,12 +10,14 @@ import { Header } from "../components/header/Header";
 
 export const ScreenGroups = () => {
   const { state } = useContext(GlobalState);
+
   const [toggleModal, setToggleModal] = useState(false);
 
   return (
     <>
       <div className="row justify-content-center container-general ">
         <Header />
+
         {toggleModal && <CardSearch setToggleModal={setToggleModal} />}
         <div className="team-container row">
           <div

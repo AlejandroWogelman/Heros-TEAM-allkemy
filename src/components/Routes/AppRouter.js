@@ -9,11 +9,12 @@ import { PublicRoutes } from "./PublicRoutes";
 
 export const AppRouter = memo(() => {
   const { auth } = useContext(AuthContext);
+
   return (
     <Router>
       <Switch>
-        <PublicRoutes path="/login" exact auth={auth} component={Login} />
-        <PrivateRouts path="/" auth={auth} component={DashboardRoutes} />
+        <PublicRoutes path="/login" exact auth={auth.log} component={Login} />
+        <PrivateRouts path="/" auth={auth.log} component={DashboardRoutes} />
       </Switch>
     </Router>
   );

@@ -6,12 +6,12 @@ export const authReducer = (state = {}, action) => {
       localStorage.setItem("log", true);
       return {
         ...action.payload,
-        logg: true,
+        log: true,
       };
     case types.logout:
       localStorage.setItem("log", false);
       return {
-        logg: false,
+        log: false,
       };
 
     default:

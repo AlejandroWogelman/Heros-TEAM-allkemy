@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../../Auth/AuthContext";
 import { types } from "../../../Types/types";
+import "./login.css";
 
 export const Login = ({ history }) => {
   const lastItem = localStorage.getItem("lastPath") || "/";
@@ -12,9 +13,11 @@ export const Login = ({ history }) => {
     history.replace(lastItem);
   };
   return (
-    <div>
-      Welcome to the Aplication
-      <button onClick={toggle}>ingresar</button>
+    <div className="login-container">
+      <h3>Ingresa para formar tu SÚPER equipo!</h3>
+      <button onClick={toggle} className="btn btn-primary">
+        ingresar
+      </button>
     </div>
   );
 };
