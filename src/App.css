@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+.App {
+  background-image: url(./assets/—Pngtree—vector\ gray\ white\ background\ with_1149755.png);
+  background-repeat: round;
+  background-size: 100%;
+  min-height: 100vh;
+  min-width: 320px;
+}
+.error-input {
+  font-size: 14px;
+  color: red;
+  text-shadow: 0 0 1px rgb(0, 0, 0);
+}
+.audio-card {
+  position: fixed;
+  z-index: 1;
+  right: 0;
+  border-radius: 5px;
+  width: 100px;
+  height: 100px;
+}

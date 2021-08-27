@@ -1,0 +1,10 @@
+{
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "editor.suggest.showWords": false,
+  "editor.quickSuggestions": null
+}
