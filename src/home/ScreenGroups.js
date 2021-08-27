@@ -17,7 +17,6 @@ export const ScreenGroups = () => {
     <>
       <div className="row justify-content-center container-general ">
         <Header />
-
         {toggleModal && <CardSearch setToggleModal={setToggleModal} />}
         <div className="team-container row">
           <div

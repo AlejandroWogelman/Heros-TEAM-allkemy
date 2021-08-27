@@ -13,8 +13,8 @@ export const AppRouter = memo(() => {
   return (
     <Router>
       <Switch>
-        <PublicRoutes path="/login" exact auth={auth.log} component={Login} />
-        <PrivateRouts path="/" auth={auth.log} component={DashboardRoutes} />
+        <PublicRoutes path="/login" exact auth={auth} component={Login} />
+        <PrivateRouts path="/" auth={auth} component={DashboardRoutes} />
       </Switch>
     </Router>
   );

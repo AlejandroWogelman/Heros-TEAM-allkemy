@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 
 import { GlobalState } from "./components/Context/GlobalState";
+import { Header } from "./components/header/Header";
 import { useFetch } from "./components/Hooks/useFetch";
 import { useFetchIndIvidual } from "./components/Hooks/useFetchIndIvidual";
 import { AppRouter } from "./components/Routes/AppRouter";
