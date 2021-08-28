@@ -15,7 +15,7 @@ export const Header = () => {
       <header>
         <h1>SUPER TEAM</h1>
       </header>
-      <span>
+      <span className="span-btn">
         <button className="btn btn-danger w-1" onClick={handleLogOut}>
           cerrar sesion
         </button>
