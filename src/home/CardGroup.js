@@ -31,13 +31,13 @@ export const CardGroup = ({
         <div className="hero-info col-12 pb-4">
           <h5 className="pt-3"> {name}</h5>
           <hr />
-          <p>Combat: {combat}</p>
-          <p>Durability: {durability}</p>
-          <p>Intelligence: {intelligence}</p>
-          <p>Power: {power}</p>
-          <p>Speed: {speed}</p>
-          <p>Strength: {strength}</p>
-          <Link to={`./hero/${name}/${id}`}>More</Link>
+          <p>Combate: {combat}</p>
+          <p>Durabilidad: {durability}</p>
+          <p>Inteligencia: {intelligence}</p>
+          <p>Poder: {power}</p>
+          <p>Velocidad: {speed}</p>
+          <p>Fuerza: {strength}</p>
+          <Link to={`./hero/${name}/${id}`}>Ver Más</Link>
         </div>
         <div className="row box-actions">
           <button className="btn btn-light" onClick={() => handleDelete(id)}>

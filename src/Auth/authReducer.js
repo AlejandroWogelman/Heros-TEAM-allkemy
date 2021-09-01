@@ -3,13 +3,12 @@ import { types } from "../Types/types";
 export const authReducer = (state = {}, action) => {
   switch (action.type) {
     case types.login:
-      localStorage.setItem("log", true);
+      localStorage.setItem("token", action.payload);
       return {
-        ...action.payload,
         log: true,
       };
     case types.logout:
-      localStorage.setItem("log", false);
+      localStorage.removeItem("token");
       return {
         log: false,
       };
