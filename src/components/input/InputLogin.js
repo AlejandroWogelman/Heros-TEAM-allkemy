@@ -13,7 +13,7 @@ export const InputLogin = () => {
   const POST = async (email, password) => {
     console.log(email, password);
     return axios
-      .post("http://challenge-react.alkemy.org/", {
+      .post("http://challenge-react.alkemy.org", {
         password: password,
         email: email,
       })
