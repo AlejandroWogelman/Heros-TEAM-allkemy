@@ -24,3 +24,21 @@ header h1 {
 .span-btn {
   margin: 1rem 0;
 }
+.fab {
+  font-size: 2rem;
+  padding: 5px;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+}
+.contact a {
+  transition: all 0.3s;
+  color: rgb(230, 229, 227);
+  margin: 0 15px;
+}
+.contact a:hover {
+  transform: rotate(30deg);
+  color: black;
+}

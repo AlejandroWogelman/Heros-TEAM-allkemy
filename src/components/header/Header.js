@@ -29,6 +29,23 @@ export const Header = () => {
             <p>Elige hasta 3 de cada bando!</p>
           </li>
         </ul>
+        <div className="contact">
+          <a
+            href="https://github.com/AlejandroWogelman"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="fab fa-x3 fa-github"></i>
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/alejandrowogel/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <i className="fab fa-linkedin"></i>{" "}
+          </a>
+        </div>
       </div>
     </>
   );
