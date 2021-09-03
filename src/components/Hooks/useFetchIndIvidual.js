@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 
 import { URLbase } from "../../Constants/constants";
 
+//Fetch individual por medio del SEARCH
 export const useFetchIndIvidual = (name) => {
   const [SEARCH, setSearch] = useState([]);
 

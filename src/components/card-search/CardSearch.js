@@ -8,6 +8,7 @@ import { IndividualCard } from "./IndividualCard";
 export const CardSearch = ({ setToggleModal }) => {
   const { resultSearch, handleAdd, state } = useContext(GlobalState);
 
+  //Counter del MODAL. Valoracion positiva y negativa
   const counter = state.reduce(
     (acc, el) =>
       el.biography.alignment === "good"

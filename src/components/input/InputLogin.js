@@ -6,6 +6,8 @@ import "./inputLogin.css";
 import { AuthContext } from "../../Auth/AuthContext";
 import { types } from "../../Types/types";
 
+//Input del LOGIN
+
 export const InputLogin = () => {
   const [errorSubmit, setErrorSubmit] = useState(false);
   const { dispatch } = useContext(AuthContext);

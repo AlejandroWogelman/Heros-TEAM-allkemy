@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { pet1, pet2 } from "../../Constants/constants";
 
+//Fetch inicial de la aplicacion y posterior estado global
+
 export const useFetch = (id) => {
   const [state, setState] = useState([]);
 

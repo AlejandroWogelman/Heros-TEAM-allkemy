@@ -1,4 +1,5 @@
 export const statsTeam = (array) => {
+  //Suma de cada una de las fortalezas individualmente
   const speed = array.reduce((prev, el) => {
     if (el.powerstats.speed > 1) {
       return parseInt(el.powerstats.speed) + prev;
@@ -55,7 +56,10 @@ export const statsTeam = (array) => {
     0
   );
 
+  //Suma total de todas las fortalezas
   const total = [speed + power + combat + strength + intelligence + durability];
+
+  //Principal Fortaleza del TEAM
 
   let MaxStats = { initialValue: 0 };
 
@@ -66,9 +70,13 @@ export const statsTeam = (array) => {
     { strength },
     { intelligence },
     { durability },
-  ].forEach((max) =>
-    Object.values(max) > Object.values(MaxStats) ? (MaxStats = max) : null
-  );
+  ];
+  max.forEach((max) => {
+    if (Object.values(max)[0] > Object.values(MaxStats)[0]) {
+      MaxStats = max;
+    }
+  });
+  //
 
   return {
     speed,

@@ -2,6 +2,8 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import React, { useContext } from "react";
 import { GlobalState } from "../Context/GlobalState";
 
+//Input del SEARCH para busqueda de nuevos personajes
+
 export const InputsSearch = () => {
   const { handleFETCH } = useContext(GlobalState);
 
