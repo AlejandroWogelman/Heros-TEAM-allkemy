@@ -27,7 +27,7 @@ export const SingleHeroCard = ({
         <p>
           Alias:
           {aliases.map((x) => (
-            <span> {x} </span>
+            <span key={x}> {x} </span>
           ))}
         </p>
         <p>
