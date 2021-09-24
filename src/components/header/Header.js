@@ -1,13 +1,14 @@
-import React, { useContext } from "react";
-import { AuthContext } from "../../Auth/AuthContext";
-import { types } from "../../Types/types";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { logoutREDUX } from "../../Redux/authAPP";
+
 import "./header.css";
 
 export const Header = () => {
-  const { dispatch } = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   const handleLogOut = () => {
-    dispatch({ type: types.logout });
+    dispatch(logoutREDUX());
   };
 
   return (

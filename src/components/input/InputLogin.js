@@ -1,29 +1,17 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import axios from "axios";
 
 import "./inputLogin.css";
-import { AuthContext } from "../../Auth/AuthContext";
-import { types } from "../../Types/types";
+
+import { useDispatch } from "react-redux";
+import { loginREDUX } from "./../../Redux/authAPP";
 
 //Input del LOGIN
 
 export const InputLogin = () => {
   const [errorSubmit, setErrorSubmit] = useState(false);
-  const { dispatch } = useContext(AuthContext);
 
-  const POST = async (email, password) => {
-    console.log(email, password);
-    return axios
-      .post("http://challenge-react.alkemy.org", {
-        password: password,
-        email: email,
-      })
-      .then(({ data }) => {
-        dispatch({ type: types.login, payload: data.token });
-      })
-      .catch((error) => console.log(error));
-  };
+  const dispatch = useDispatch();
 
   return (
     <Formik
@@ -60,7 +48,7 @@ export const InputLogin = () => {
         } else if (email !== "challenge@alkemy.org") {
           return;
         } else {
-          POST(email, password);
+          dispatch(loginREDUX(password, email));
         }
       }}
     >

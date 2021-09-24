@@ -1,12 +1,17 @@
-import React, { useContext } from "react";
-import { GlobalState } from "../Context/GlobalState";
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import { InputsSearch } from "../input/InputSearch";
 import "./cardSearch.css";
 import { IndividualCard } from "./IndividualCard";
 
-export const CardSearch = ({ setToggleModal }) => {
-  const { resultSearch, handleAdd, state } = useContext(GlobalState);
+export const CardSearch = ({ changeModal }) => {
+  const charactersSearch = useSelector(
+    (store) => store.searchCharacters.characters
+  );
+  const state = useSelector((state) => state.stateGlobal.characters);
+
+  const dispatch = useDispatch();
 
   //Counter del MODAL. Valoracion positiva y negativa
   const counter = state.reduce(
@@ -17,15 +22,11 @@ export const CardSearch = ({ setToggleModal }) => {
     {}
   );
 
-  const handleToggle = () => {
-    setToggleModal((x) => !x);
-  };
-
   return (
     <div className="Card-search row">
       <div className="max">
         <div className="text-end p-2 btn-modal">
-          <button className="btn btn-danger" onClick={handleToggle}>
+          <button className="btn btn-danger" onClick={changeModal}>
             X
           </button>
         </div>
@@ -57,28 +58,21 @@ export const CardSearch = ({ setToggleModal }) => {
           </div>
           <div className="col-md-8 col-sm-12 container-card-search">
             <div className="row justify-content-center">
-              {resultSearch !== undefined ? (
-                resultSearch.map((hero) => {
-                  let repeat = false;
-                  state.find((h) =>
-                    hero.id === h.id ? (repeat = true) : null
-                  );
+              {charactersSearch?.map((hero) => {
+                let repeat = false;
+                state.find((h) => (hero.id === h.id ? (repeat = true) : null));
 
-                  return (
-                    <IndividualCard
-                      {...hero}
-                      key={hero.id}
-                      handleAdd={handleAdd}
-                      hero={hero}
-                      resultSearch={resultSearch}
-                      state={state}
-                      repeat={repeat}
-                    />
-                  );
-                })
-              ) : (
-                <p className="text-center mt-2 no-result">Sin resultados</p>
-              )}
+                return (
+                  <IndividualCard
+                    {...hero}
+                    key={hero.id}
+                    hero={hero}
+                    changeModal={changeModal}
+                    repeat={repeat}
+                    dispatch={dispatch}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

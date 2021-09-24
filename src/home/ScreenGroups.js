@@ -1,23 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useCallback, useRef } from "react";
 
 import { CardGroup } from "./CardGroup";
 import { StatsGroup } from "./StatsGroup";
-import { GlobalState } from "../components/Context/GlobalState";
 
 import "./screenGroups.css";
 import { CardSearch } from "../components/card-search/CardSearch";
 import { Header } from "../components/header/Header";
+import { useSelector } from "react-redux";
 
 export const ScreenGroups = () => {
-  const { state } = useContext(GlobalState);
+  const state = useSelector((store) => store.stateGlobal.characters);
 
-  const [toggleModal, setToggleModal] = useState(false);
+  const modal = useRef();
+
+  const changeModal = useCallback(() => {
+    modal.current?.classList.toggle("MODAL-OPEN");
+  }, []);
 
   return (
     <>
       <div className="row justify-content-center container-general ">
+        <div ref={modal} className="MODAL">
+          {<CardSearch changeModal={changeModal} />}
+        </div>
         <Header />
-        {toggleModal && <CardSearch setToggleModal={setToggleModal} />}
         <div className="team-container row">
           <div
             className="col-md-10 
@@ -31,7 +37,7 @@ export const ScreenGroups = () => {
                     index={index}
                     state={state}
                     key={hero.id}
-                    setToggleModal={setToggleModal}
+                    changeModal={changeModal}
                   />
                 ))}
             </div>

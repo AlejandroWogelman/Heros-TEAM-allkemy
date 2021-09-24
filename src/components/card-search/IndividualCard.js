@@ -1,4 +1,5 @@
 import React from "react";
+import { addCharacter } from "../../Redux/globalState";
 
 import "./cardSearch.css";
 
@@ -6,10 +7,12 @@ export const IndividualCard = ({
   name,
   image,
   biography,
-  handleAdd,
   hero,
   repeat,
+  changeModal,
+  dispatch,
 }) => {
+  changeModal();
   return (
     <div
       className={`col-md-5 m-1 col-sm-10 card-search ${
@@ -27,7 +30,10 @@ export const IndividualCard = ({
         <p>{biography["full-name"]}</p>
         <p>{biography["first-appearance"]}</p>
       </div>
-      <button className="btn btn-success" onClick={() => handleAdd(hero)}>
+      <button
+        className="btn btn-success"
+        onClick={() => dispatch(addCharacter(hero))}
+      >
         {" "}
         add to team
       </button>

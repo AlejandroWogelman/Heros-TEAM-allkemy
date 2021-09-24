@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { GlobalState } from "../components/Context/GlobalState";
+import { handleDelete } from "../Redux/globalState";
 
 export const CardGroup = ({
   name,
@@ -8,18 +9,14 @@ export const CardGroup = ({
   powerstats,
   id,
   index,
-  state,
-  setToggleModal,
   biography,
+  state,
+  changeModal,
 }) => {
   const { combat, durability, intelligence, power, speed, strength } =
     powerstats;
 
-  const { handleDelete } = useContext(GlobalState);
-
-  const handleToggle = () => {
-    setToggleModal((x) => !x);
-  };
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -40,7 +37,10 @@ export const CardGroup = ({
           <Link to={`./hero/${name}/${id}`}>Ver Más</Link>
         </div>
         <div className="row box-actions">
-          <button className="btn btn-light" onClick={() => handleDelete(id)}>
+          <button
+            className="btn btn-light"
+            onClick={() => dispatch(handleDelete(id))}
+          >
             eliminar
           </button>
         </div>
@@ -48,7 +48,7 @@ export const CardGroup = ({
       {state?.length < 6
         ? index === state.length - 1 && (
             <div className="col-md-3 col-sm-6">
-              <button className="btn-add" onClick={handleToggle}>
+              <button className="btn-add" onClick={changeModal}>
                 <i className="fas fa-2x fa-plus"></i>
               </button>
             </div>

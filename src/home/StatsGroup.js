@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { GlobalState } from "../components/Context/GlobalState";
+import React from "react";
+import { useSelector } from "react-redux";
 
 import { statsTeam } from "../helpers/statsTeam";
 import { totalProgress } from "../helpers/totalProggres";
@@ -7,7 +7,7 @@ import { totalProgress } from "../helpers/totalProggres";
 /* ACÁ SE ENCUENTRA EL COMPONENTE QUE CONTIENE LAS ESTADISTICAS DEL TEAM */
 
 export const StatsGroup = () => {
-  const { state } = useContext(GlobalState);
+  const state = useSelector((store) => store.stateGlobal.characters);
 
   const {
     speed,

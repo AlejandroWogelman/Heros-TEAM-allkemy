@@ -1,14 +1,14 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { optimiceData } from "../../helpers/optimiceData";
 
-import { GlobalState } from "../Context/GlobalState";
 import { SingleHeroCard } from "./SingleHeroCard";
 
 export const HeroScreen = ({ history }) => {
   const { id } = useParams();
 
-  const { state } = useContext(GlobalState);
+  const state = useSelector((store) => store.stateGlobal.characters);
 
   const hero = state?.find((x) => x.id === id);
   const data = optimiceData(hero);

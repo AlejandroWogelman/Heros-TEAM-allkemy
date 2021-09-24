@@ -1,11 +1,14 @@
+import React from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
-import React, { useContext } from "react";
-import { GlobalState } from "../Context/GlobalState";
+import { useDispatch } from "react-redux";
+import { fetchSearch } from "../../Redux/searchRedux";
 
 //Input del SEARCH para busqueda de nuevos personajes
 
 export const InputsSearch = () => {
-  const { handleFETCH } = useContext(GlobalState);
+  const dispatch = useDispatch();
+
+  const actualizarSearch = (name) => dispatch(fetchSearch(name));
 
   return (
     <>
@@ -23,8 +26,8 @@ export const InputsSearch = () => {
           return errores;
         }}
         onSubmit={({ heroName }, { resetForm }) => {
-          if (heroName.length > 3) {
-            handleFETCH(heroName.trim());
+          if (heroName.length > 2) {
+            actualizarSearch(heroName.trim());
           }
           resetForm();
         }}
