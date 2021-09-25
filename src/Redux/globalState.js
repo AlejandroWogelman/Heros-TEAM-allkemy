@@ -60,7 +60,9 @@ export default function stateGlobalRedux(state = initialState, action) {
 }
 
 export const AddState = (state) => async (dispatch) => {
-  dispatch({ type: ADD_STATE, payload: state });
+  if (state.length >= 1) {
+    dispatch({ type: ADD_STATE, payload: state });
+  }
 };
 
 export const handleDelete = (character) => (dispatch) => {

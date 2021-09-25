@@ -13,9 +13,7 @@ function App() {
   dispatch(AddState(state));
 
   return (
-    <div className="App">
-      <AppRouter />
-    </div>
+    <div className="App">{state.length >= 1 ? <AppRouter /> : "cargando"}</div>
   );
 }
 
