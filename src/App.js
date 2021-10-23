@@ -13,8 +13,15 @@ function App() {
   dispatch(AddState(state));
 
   return (
-    <div className="App">{state.length >= 1 ? <AppRouter /> : "cargando"}</div>
+    <div className="App">
+      {state.length >= 1 ? (
+        <AppRouter />
+      ) : (
+        <div className="loading">
+          <p>Loading...</p>
+        </div>
+      )}
+    </div>
   );
 }
-
 export default App;

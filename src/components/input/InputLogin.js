@@ -31,7 +31,7 @@ export const InputLogin = () => {
         //Validación CORREO
         if (val.email.trim().length === 0) {
           errores.email = "campo incompleto";
-        } else if (val.email.trim().length === 19) {
+        } else if (val.email.trim().length >= 35) {
           errores.email = "máximo de caracteres alcanzado";
         } else if (
           !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val.email)
@@ -42,13 +42,15 @@ export const InputLogin = () => {
         return errores;
       }}
       onSubmit={({ email, password }) => {
-        if (password !== "react") {
+        if (password !== "ejemplo") {
           setErrorSubmit(true);
           return;
-        } else if (email !== "challenge@alkemy.org") {
+        } else if (email !== "ejemplo@ejemplo.com") {
           return;
         } else {
-          dispatch(loginREDUX(password, email));
+          /*  dispatch(loginREDUX(password, email)) */ dispatch(
+            loginREDUX("datos de ejemplo")
+          );
         }
       }}
     >
@@ -82,7 +84,7 @@ export const InputLogin = () => {
               name="password"
               autoComplete="no"
               className="form-control"
-              placeholder="*****"
+              placeholder="ejemplo"
               maxLength="20"
             />
             {

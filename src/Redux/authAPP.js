@@ -21,7 +21,7 @@ export default function authRedux(state = "", action) {
 }
 
 export const loginREDUX = (password, email) => async (dispatch) => {
-  const TOKEN = await axios
+  /* const TOKEN = await axios
     .post("http://challenge-react.alkemy.org", {
       password: password,
       email: email,
@@ -29,9 +29,9 @@ export const loginREDUX = (password, email) => async (dispatch) => {
     .then(({ data }) => {
       return { payload: data.token };
     })
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error)); */
 
-  dispatch({ type: types.login, payload: TOKEN.payload });
+  dispatch({ type: types.login, payload: "token de ejemplo" });
 };
 
 export const logoutREDUX = () => (dispatch) => {
