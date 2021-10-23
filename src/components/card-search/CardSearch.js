@@ -58,29 +58,21 @@ export const CardSearch = ({ changeModal }) => {
           </div>
           <div className="col-md-8 col-sm-12 container-card-search">
             <div className="row justify-content-center">
-              {charactersSearch?.lenght > 0 ? (
-                charactersSearch.map((hero) => {
-                  let repeat = false;
-                  state.find((h) =>
-                    hero.id === h.id ? (repeat = true) : null
-                  );
+              {charactersSearch?.map((hero) => {
+                let repeat = false;
+                state.find((h) => (hero.id === h.id ? (repeat = true) : null));
 
-                  return (
-                    <IndividualCard
-                      {...hero}
-                      key={hero.id}
-                      hero={hero}
-                      changeModal={changeModal}
-                      repeat={repeat}
-                      dispatch={dispatch}
-                    />
-                  );
-                })
-              ) : (
-                <p style={{ textAlign: "center", color: "white" }}>
-                  Sin resultados
-                </p>
-              )}
+                return (
+                  <IndividualCard
+                    {...hero}
+                    key={hero.id}
+                    hero={hero}
+                    changeModal={changeModal}
+                    repeat={repeat}
+                    dispatch={dispatch}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
