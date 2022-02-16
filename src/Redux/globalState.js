@@ -1,9 +1,12 @@
 const ADD_STATE = "ADD_STATE";
 const DELETE_CHARACTER = "DELETE_CHARACTER";
 const ADD_CHARACTER = "ADD_CHARACTER";
+const MODAL_ON = "MODAL_ON";
+const MODAL_OFF = "MODAL_OFF";
 
 const initialState = {
   characters: [],
+  modal: false,
 };
 
 export default function stateGlobalRedux(state = initialState, action) {
@@ -53,6 +56,16 @@ export default function stateGlobalRedux(state = initialState, action) {
         return { characters: [...state.characters, action.payload] };
         //{characters: [arrays]}
       }
+    case MODAL_OFF:
+      return {
+        ...state,
+        modal: false,
+      };
+    case MODAL_ON:
+      return {
+        ...state,
+        modal: true,
+      };
 
     default:
       return state;
@@ -71,4 +84,11 @@ export const handleDelete = (character) => (dispatch) => {
 
 export const addCharacter = (hero) => (dispatch) => {
   dispatch({ type: ADD_CHARACTER, payload: hero });
+};
+
+export const modalON = () => (dispatch) => {
+  dispatch({ type: MODAL_ON });
+};
+export const modalOFF = () => (dispatch) => {
+  dispatch({ type: MODAL_OFF });
 };

@@ -6,29 +6,28 @@ import { StatsGroup } from "./StatsGroup";
 import "./screenGroups.css";
 import { CardSearch } from "../components/card-search/CardSearch";
 import { Header } from "../components/header/Header";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { modalOFF, modalON } from "../Redux/globalState";
 
 export const ScreenGroups = React.memo(() => {
   const state = useSelector((store) => store.stateGlobal.characters);
+  const modalState = useSelector((store) => store.stateGlobal.modal);
 
   const modal = useRef();
+  const dispatch = useDispatch();
 
   const changeModal = () => {
-    const modalState = modal.current.classList;
-
-    if (modalState.contains("MODAL-OPEN")) {
-      modalState.remove("MODAL-OPEN");
-      localStorage.setItem("modal", modal.current.className);
+    if (modalState) {
+      dispatch(modalOFF());
     } else {
-      modalState.add("MODAL-OPEN");
-      localStorage.setItem("modal", modal.current.className);
+      dispatch(modalON());
     }
   };
 
   return (
     <>
       <div className="row justify-content-center container-general ">
-        <div ref={modal} className={localStorage.getItem("modal") || "MODAL"}>
+        <div ref={modal} className={modalState ? "MODAL MODAL-OPEN" : "MODAL"}>
           {<CardSearch changeModal={changeModal} />}
         </div>
         <Header />

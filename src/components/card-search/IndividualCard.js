@@ -12,7 +12,6 @@ export const IndividualCard = ({
   changeModal,
   dispatch,
 }) => {
-  changeModal();
   return (
     <div
       className={`col-md-5 m-1 col-sm-10 card-search ${
