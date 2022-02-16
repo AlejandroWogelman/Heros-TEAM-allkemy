@@ -8,19 +8,27 @@ import { CardSearch } from "../components/card-search/CardSearch";
 import { Header } from "../components/header/Header";
 import { useSelector } from "react-redux";
 
-export const ScreenGroups = () => {
+export const ScreenGroups = React.memo(() => {
   const state = useSelector((store) => store.stateGlobal.characters);
 
   const modal = useRef();
 
-  const changeModal = useCallback(() => {
-    modal.current?.classList.toggle("MODAL-OPEN");
-  }, []);
+  const changeModal = () => {
+    const modalState = modal.current.classList;
+
+    if (modalState.contains("MODAL-OPEN")) {
+      modalState.remove("MODAL-OPEN");
+      localStorage.setItem("modal", modal.current.className);
+    } else {
+      modalState.add("MODAL-OPEN");
+      localStorage.setItem("modal", modal.current.className);
+    }
+  };
 
   return (
     <>
       <div className="row justify-content-center container-general ">
-        <div ref={modal} className="MODAL">
+        <div ref={modal} className={localStorage.getItem("modal") || "MODAL"}>
           {<CardSearch changeModal={changeModal} />}
         </div>
         <Header />
@@ -47,4 +55,4 @@ export const ScreenGroups = () => {
       </div>
     </>
   );
-};
+});
